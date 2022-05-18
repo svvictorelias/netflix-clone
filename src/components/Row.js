@@ -1,5 +1,5 @@
 import movieTrailer from 'movie-trailer'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import ReactPlayer from 'react-player'
 import { getMovies } from '../api'
 import './Row.css'
