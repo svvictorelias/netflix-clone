@@ -13,16 +13,15 @@ function Row({ title, path, isLarge }) {
     if (trailerUrl) {
       setTrailerUrl('')
     } else {
-      movieTrailer(movie.title || movie.name || movie.original_name || '').then(
-        url => {
+      movieTrailer(movie.title || movie.name || movie.original_name || '')
+        .then(url => {
           setTrailerUrl(url)
           console.log(url)
         })
-        .catch((error)=>{
-            alert("não foi possivel encontrar o trailer")
+        .catch(error => {
+          alert('não foi possivel encontrar o trailer')
         })
     }
-    
   }
   const fetchMovies = async _path => {
     try {
@@ -56,7 +55,17 @@ function Row({ title, path, isLarge }) {
           )
         })}
       </div>
-      {trailerUrl && <ReactPlayer playing={true} url={trailerUrl} />}
+      <div class="playerTrailer">
+        {trailerUrl && (
+          <ReactPlayer
+            playing={true}
+            url={trailerUrl}
+            config={{
+              youtube: { playerVars: { origin: 'http://www.youtube.com' } }
+            }}
+          />
+        )}
+      </div>
     </div>
   )
 }

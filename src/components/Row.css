@@ -30,3 +30,7 @@
 .movie-card:hover{
     transform: scale(1.08);
 }
+.playerTrailer{
+    display: flex;
+    justify-content: center;
+}
